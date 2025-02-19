@@ -65,6 +65,7 @@ const Navbar = () => {
         }
       );
       console.log(res);
+      location.reload();
     } catch (error) {
       toast.error(error.message);
       console.log(error);
