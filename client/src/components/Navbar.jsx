@@ -96,6 +96,7 @@ const Navbar = () => {
               alt="logo"
               className="w-[44px]"
             />
+            <div className="lg:flex hidden gap-5">
             <Link
               href={"/"}
               className="py-1.5 px-4 hover:shadow-md rounded-md duration-200 hover:translate-x-0.5 hover:translate-y-0.5"
@@ -126,6 +127,7 @@ const Navbar = () => {
             >
               Testimonials
             </Link>
+            </div>
             <div
               onClick={handleTriggerModal}
               className="bg-gradient-to-b cursor-default from-[#A128FF] to-[#6100AD] py-2 px-4 rounded-full text-white"
@@ -136,13 +138,13 @@ const Navbar = () => {
         </div>
         <Filters />
       </div>
-      <div className="h-[160px] w-full"></div>
+      <div className="lg:h-[160px] md:h-[200px] h-[270px] w-full"></div>
       <dialog id="my_modal_3" className="modal">
-        <div className="modal-box min-h-fit max-w-[650px]">
+        <div className="modal-box min-h-[90vh] max-w-[650px]">
           <h3 className="font-bold text-lg text-center">Create Job Opening</h3>
           <form
             action=""
-            className="grid grid-cols-2 gap-3 pt-5 text-[#636363] font-[600] "
+            className="grid md:grid-cols-2 gap-3 pt-5 text-[#636363] font-[600] "
           >
             <div className="grid gap-1 group ">
               <label htmlFor="" className="group-hover:text-[#222222] pl-0.5">
@@ -375,7 +377,7 @@ const Navbar = () => {
                 className="w-full placeholder-text-[#BCBCBC] placeholder:font-normal placeholder:text-sm border rounded-[6px] py-1 px-3 focus:outline-none focus:border-black"
               />
             </div>
-            <div className="grid gap-1 col-span-2 group">
+            <div className="grid gap-1 md:col-span-2 group">
               <label htmlFor="" className="group-hover:text-[#222222] pl-0.5">
                 Job Description
               </label>

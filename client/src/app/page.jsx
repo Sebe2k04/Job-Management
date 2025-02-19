@@ -38,7 +38,7 @@ export default function Home() {
         <Loader />
       ) : (
         <div className="flex justify-center">
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-5">
           {jobs &&
             jobs.map((job) => {
               return (

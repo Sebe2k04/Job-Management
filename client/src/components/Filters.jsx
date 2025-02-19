@@ -30,7 +30,7 @@ const Filters = () => {
   }, [value]);
   return (
     <div>
-      <div className="grid grid-cols-4 divide-x-2 pt-1 pb-4">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 divide-x-2 pt-1 pb-4">
         <div className="p-2 flex gap-5 items-center justify-center">
           <Image
             src="/search.svg"
