@@ -56,6 +56,18 @@ const Navbar = () => {
 
   const handleCreateJob = async (req, res) => {
     try {
+      if (
+        !jobData.title ||
+        !jobData.company ||
+        !jobData.location ||
+        !jobData.job_type ||
+        !jobData.min_salary ||
+        !jobData.max_salary ||
+        !jobData.deadline ||
+        !jobData.description
+      ) {
+        throw new Error("All Fields are required");
+      }
       const res = await toast.promise(
         axiosInstance.post("/api/jobs/", jobData),
         {
