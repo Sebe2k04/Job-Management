@@ -81,9 +81,12 @@ const JobCard = ({ job }) => {
         </div>
       </div>
       <div className="grid w-full">
-      <Link href={"/"} className="bg-[#00AAFF] text-white text-center font-semibold py-2 rounded-[12px] w-full">
-        Apply Now
-      </Link>
+        <Link
+          href={"/"}
+          className="bg-[#00AAFF] text-white text-center font-semibold py-2 rounded-[12px] w-full"
+        >
+          Apply Now
+        </Link>
       </div>
     </div>
   );
