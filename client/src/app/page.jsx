@@ -37,6 +37,7 @@ export default function Home() {
       {loading ? (
         <Loader />
       ) : (
+        <div className="flex justify-center">
         <div className="grid grid-cols-4 gap-5">
           {jobs &&
             jobs.map((job) => {
@@ -46,6 +47,7 @@ export default function Home() {
                 </div>
               );
             })}
+        </div>
         </div>
       )}
     </div>

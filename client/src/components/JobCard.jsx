@@ -20,12 +20,12 @@ const JobCard = ({ job }) => {
   const points = job.description.split("\n");
 
   return (
-    <div className="shadow-sm p-4 rounded-lg bg-white relative z-[10]">
+    <div className="card p-4 rounded-lg bg-white relative z-[10] max-w-[316px]">
       <div className="absolute top-5 right-5 bg-[#B0D9FF] px-3 py-1 rounded-xl font-semibold">
         {daysAgo} Ago
       </div>
       <div className="">
-        <div className="bg-gradient-to-b from-[#FEFEFD] to-[#F1F1F1] shadow-md p-2 w-fit border border-white rounded-xl">
+        <div className="bg-gradient-to-b from-[#FEFEFD] to-[#F1F1F1] shadow-sm p-2 w-fit border border-white rounded-xl">
           <Image
             src="/amazon.png"
             width="100"

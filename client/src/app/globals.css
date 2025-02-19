@@ -48,7 +48,10 @@ select option {
 .nav{
   box-shadow: 0px 0px 20px #7F7F7F26;
 }
+.card{
+  box-shadow: 0px 0px 14px #7F7F7F26;
 
+}
 body {
   color: var(--foreground);
   background: var(--background);
