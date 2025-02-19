@@ -36,7 +36,7 @@ const JobCard = ({ job }) => {
         </div>
         <div className="pt-5 pb-3 grid gap-2">
           <h1 className="text-xl font-semibold w-full truncate">{job.title}</h1>
-          <div className="flex justify-between gap-2 text-[16px] text-[#5A5A5A]">
+          <div className="flex justify-between gap-2 text-[16px] text-[#5A5A5A] font-[500]">
             <div className="flex gap-1 items-center">
               <Image
                 src="/exp.svg"
