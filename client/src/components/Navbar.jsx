@@ -140,7 +140,7 @@ const Navbar = () => {
       </div>
       <div className="lg:h-[160px] md:h-[200px] h-[270px] w-full"></div>
       <dialog id="my_modal_3" className="modal">
-        <div className="modal-box min-h-[90vh] max-w-[650px]">
+        <div className="modal-box max-h-[90vh] lg:max-h-fit max-w-[650px]">
           <h3 className="font-bold text-lg text-center">Create Job Opening</h3>
           <form
             action=""
