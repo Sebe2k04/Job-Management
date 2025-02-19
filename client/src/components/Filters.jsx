@@ -4,20 +4,14 @@ import locationData from "../data/locations.json";
 
 import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
+import { useGlobalContext } from "@/context/GlobaProvider";
 const Filters = () => {
-  const [filters, setFilters] = useState({
-    search: "",
-    location: "",
-    job_type: "",
-    min_salary: "0",
-    max_salary: "50",
-  });
-
+  const { filters, setFilters } = useGlobalContext();
   const [active, setActive] = useState(true);
   const [jobType, setJobType] = useState("Job Type");
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState([0, 50]);
-  console.log(filters)
+//   console.log(filters);
 
   const types = ["Full-Time", "Part-Time", "Contract", "Internship"];
   const locations = locationData.locations;
@@ -29,9 +23,9 @@ const Filters = () => {
 
   useEffect(() => {
     setFilters({
-    ...filters,
-      min_salary: Math.round(value[0]),
-      max_salary: Math.round(value[1]),
+      ...filters,
+      min_salary: Math.round(value[0]) + 50,
+      max_salary: Math.round(value[1]) + 50,
     });
   }, [value]);
   return (

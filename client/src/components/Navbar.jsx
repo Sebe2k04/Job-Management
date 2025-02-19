@@ -9,6 +9,8 @@ import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import Filters from "./Filters";
 import locationData from "../data/locations.json";
+import { axiosInstance } from "@/utils/axiosInstance";
+import { toast } from "react-toastify";
 const Navbar = () => {
   const [isOpen2, setIsOpen2] = useState(false);
   const [active, setActive] = useState(true);
@@ -22,7 +24,7 @@ const Navbar = () => {
     deadline: "",
     description: "",
   });
-  console.log(jobData);
+  // console.log(jobData);
   const locations = locationData.locations;
 
   let filteredSuggestions = locations
@@ -51,9 +53,27 @@ const Navbar = () => {
   };
 
   const types = ["Full-Time", "Part-Time", "Contract", "Internship"];
+
+  const handleCreateJob = async (req, res) => {
+    try {
+      const res = await toast.promise(
+        axiosInstance.post("/api/jobs/", jobData),
+        {
+          pending: "Creating Job...",
+          success: "Job Created",
+          error: "Error",
+        }
+      );
+      console.log(res);
+    } catch (error) {
+      toast.error(error.message);
+      console.log(error);
+    }
+  };
+
   return (
-    <div className="h-screen">
-      <div className="fixed top-0 left-0 bg-white w-full shadow-md">
+    <div className="">
+      <div className="fixed top-0 left-0 bg-white w-full shadow-md z-[100]">
         <div className="flex justify-center p-3 py-4">
           <div className="flex gap-5 items-center px-5 py-3 rounded-full font-[600] nav text-[#303030]">
             <Image
@@ -103,9 +123,9 @@ const Navbar = () => {
         </div>
         <Filters />
       </div>
-      <div className="h-[200px]"></div>
+      <div className="h-[160px] w-full"></div>
       <dialog id="my_modal_3" className="modal">
-        <div className="modal-box min-h-[500px] max-w-[650px]">
+        <div className="modal-box min-h-fit max-w-[650px]">
           <h3 className="font-bold text-lg text-center">Create Job Opening</h3>
           <form
             action=""
@@ -362,12 +382,17 @@ const Navbar = () => {
               />
             </div>
           </form>
-          <div className="flex justify-between pt-5">
-            <div className="flex border items-center px-5 py-1.5 rounded-[6px] border-black gap-2">
-              <h1>Save Draft</h1>
-              <MdKeyboardDoubleArrowDown />
-            </div>
-            <div className="flex border items-center px-5 py-1.5 bg-blu text-white rounded-[6px] gap-1">
+          <div className="flex justify-between pt-2 modal-action">
+            <form method="dialog">
+              <button className="flex border items-center px-5 py-1.5 rounded-[6px] border-black gap-2">
+                <h1>Save Draft</h1>
+                <MdKeyboardDoubleArrowDown />
+              </button>
+            </form>
+            <div
+              onClick={handleCreateJob}
+              className="flex border cursor-pointer items-center px-5 py-1.5 bg-blu text-white rounded-[6px] gap-1"
+            >
               <h1>Publish</h1>
               <MdKeyboardDoubleArrowRight />
             </div>

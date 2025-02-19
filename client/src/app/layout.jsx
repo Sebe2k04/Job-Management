@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { ToastContainer } from "react-toastify";
+import GlobalProvider from "@/context/GlobaProvider";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -20,11 +22,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`satoshi antialiased vsc-initialized`}
-      >
-      <Navbar/>
-        {children}
+      <body className={`satoshi antialiased vsc-initialized`}>
+        <GlobalProvider>
+          <ToastContainer position="bottom-right" />
+          <Navbar />
+          {children}
+        </GlobalProvider>
       </body>
     </html>
   );
